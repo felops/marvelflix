@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import styles from './carousel.module.css'
 
 const SCROLL_OFFSET = 0.92
@@ -31,15 +32,17 @@ export default function Carousel({ data }) {
     const {id, name, thumbnail } = item
     const imgPath = `${thumbnail.path}.${thumbnail.extension}`
     return (
-      <figure className={styles.itemTile}>
+      <figure className={styles.carouselItem}>
         <Link href={`/item/${id}`}>
-          <img
+          <Image
             height={200}
             width={200}
             src={imgPath}
+            quality={20}
+            loading='eager'
           />
         </Link>
-        <figcaption className={styles.figCaption}>{name}</figcaption>
+        <figcaption className={styles.carouselItemFigcaption}>{name}</figcaption>
       </figure>
     )
   }
@@ -51,9 +54,9 @@ export default function Carousel({ data }) {
     >
       <span 
         onClick={onScrollBack}
-        className={[styles.carouselArrow, styles.carouselArrowLeft].join(' ')}
+        className={[styles.carouselArrowContainer, styles.carouselArrowContainerLeft].join(' ')}
       >
-        <span className={styles.arrow}>
+        <span className={styles.carouselArrow}>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#F0131E">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
@@ -62,9 +65,9 @@ export default function Carousel({ data }) {
       {data.map(renderItems)}
       <span
         onClick={onScrollNext}
-        className={[styles.carouselArrow, styles.carouselArrowRight].join(' ')}
+        className={[styles.carouselArrowContainer, styles.carouselArrowContainerRight].join(' ')}
       >
-        <span className={styles.arrow}>
+        <span className={styles.carouselArrow}>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#F0131E">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>

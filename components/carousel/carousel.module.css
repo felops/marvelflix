@@ -1,17 +1,17 @@
-.itemTile {
+.carouselItem {
   cursor: pointer;
   margin: 2px;
   opacity: 0.85;
   transition: opacity 0.8s;
 }
 
-.itemTile:hover {
+.carouselItem:hover {
   margin: 0px;
   opacity: 1;
   border: 2px solid #F0131E;
 }
 
-.carouselContainer:hover .itemTile:not(:hover) {
+.carouselContainer:hover .carouselItem:not(:hover) {
   opacity: 0.7;
 }
 
@@ -26,18 +26,18 @@
   display: none;
 }
 
-.figCaption {
+.carouselItemFigcaption {
   padding: 4px;
   max-width: 200px;
   overflow: hidden;
-  margin-top: -30px;
+  margin-top: -26px;
   position: relative;
   white-space: nowrap;
   text-overflow: ellipsis;
   background-color:rgba(0, 0, 0, 0.8);
 }
 
-.arrow {
+.carouselArrow {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -46,18 +46,18 @@
   width: 3vw;
 }
 
-.carouselArrow {
+.carouselArrowContainer {
   width: 5vw;
   z-index: 100;
   position: sticky;
 }
 
-.carouselArrowLeft {
+.carouselArrowContainerLeft {
   left: 0;
   background: linear-gradient(90deg, #000, transparent);
 }
 
-.carouselArrowRight {
+.carouselArrowContainerRight {
   right: 0;
   background: linear-gradient(270deg, #000, transparent);
 }
