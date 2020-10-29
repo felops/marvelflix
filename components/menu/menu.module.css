@@ -1,0 +1,22 @@
+.nav {
+  padding-right: 1rem;
+  display: flex;
+  font-size: 1.3rem;
+  align-items: center;
+}
+
+.nav a {
+  margin: 10px;
+  padding: 10px;
+  transition: color 0.5s ease;
+}
+
+.nav a:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.nav a:nth-child(1) {
+  font-size: 2.5rem;
+  color: red;
+}
