@@ -29,10 +29,10 @@ export default function Carousel({ data }) {
   }
 
   function renderItems(item) {
-    const {id, name, thumbnail } = item
+    const { id, name, thumbnail } = item
     const imgPath = `${thumbnail.path}.${thumbnail.extension}`
     return (
-      <figure className={styles.carouselItem}>
+      <figure key={id} className={styles.carouselItem}>
         <Link href={`/item/${id}`}>
           <Image
             height={200}

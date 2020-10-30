@@ -19,7 +19,6 @@
   display: flex;
   overflow-x: auto;
   scrollbar-width: none;
-  animation: 3s linear 1s slidein;
 }
 
 .carouselContainer::-webkit-scrollbar {
