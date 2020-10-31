@@ -4,7 +4,7 @@ body {
   color: #fff;
   padding: 0;
   margin: 0;
-  font-family: Bebas Neue, cursive, -apple-system, BlinkMacSystemFont, Segoe UI,
+  font-family: Bebas Neue, -apple-system, BlinkMacSystemFont, Segoe UI,
   Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
   sans-serif;
 }
@@ -18,7 +18,18 @@ a {
   box-sizing: border-box;
 }
 
-h2 {
-  margin-bottom: 0.5rem;
-  padding-left: 1rem;
+p, li {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI,
+  Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+  sans-serif;
+}
+
+ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+ul li {
+  list-style: none;
+  margin: 0.5rem 0px;
 }

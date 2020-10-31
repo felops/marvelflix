@@ -33,7 +33,10 @@ export default function Carousel({ data }) {
     const imgPath = `${thumbnail.path}.${thumbnail.extension}`
     return (
       <figure key={id} className={styles.carouselItem}>
-        <Link href={`/item/${id}`}>
+        <Link href={{
+          pathname: '/heroes/[hero]',
+          query: { hero: id },
+        }}>
           <Image
             height={200}
             width={200}

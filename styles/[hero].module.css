@@ -1,0 +1,58 @@
+.heroContainer {
+  flex: 1;
+  margin: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.heroInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.heroPhoto {
+  margin-bottom: 2rem;
+  margin-right: 2rem;
+}
+
+.heroItemsContainer {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.heroItemContainer {
+  flex: 1;
+  padding: 0rem 2rem;
+  width: 200vw;
+  min-width: 300px;
+}
+
+.h1Name {
+  margin: 0
+}
+
+.h2Item {
+  margin-bottom: 0px;
+}
+
+.description {
+  font-size: 1.2rem;
+}
+
+.textRed {
+  color: #F0131E;
+}
+
+.textGrey {
+  color: #777;
+}
+
+.textGreyLight {
+  color: #ccc;
+}
