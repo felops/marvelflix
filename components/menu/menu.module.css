@@ -1,13 +1,12 @@
 .nav {
-  padding-right: 1rem;
+  margin-left: 2.5rem;
   display: flex;
   font-size: 1.3rem;
   align-items: center;
 }
 
 .nav a {
-  margin: 10px;
-  padding: 10px;
+  margin: 0.8rem 2rem 2rem 0px;
   transition: color 0.5s ease;
 }
 

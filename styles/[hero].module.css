@@ -1,6 +1,6 @@
 .heroContainer {
   flex: 1;
-  margin: 3rem;
+  margin: 0rem 2.5rem;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
