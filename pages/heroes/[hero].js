@@ -1,9 +1,23 @@
 import Image from 'next/image'
 import styles from '../../styles/[hero].module.css'
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 
 const ItemList = ({ object, name }) => {
-  const isEmpty = !object || (object && object.items.length === 0)
-  const remaining = object && object.available - object.items.length
+  if(!object) {
+    return (
+      <div className={styles.heroItemContainer}>
+        <h2 className={styles.h2Item}>{name}</h2>
+        <ul>
+          <li><Skeleton width={150} /></li>
+          <li><Skeleton width={150} /></li>
+          <li><Skeleton width={150} /></li>
+        </ul>
+      </div>
+    )
+  }
+
+  const isEmpty = object.items.length === 0
+  const remaining = object.available - object.items.length
   const tail = remaining > 0
     ? <li className={styles.textGreyLight}>
         and <span className={styles.textRed}>{remaining} MORE..</span>
@@ -13,7 +27,7 @@ const ItemList = ({ object, name }) => {
     ? <li className={styles.textGrey}>
         No {name}
       </li>
-    : object && object.items.map(item =>
+    : object.items.map(item =>
       <li key={item.item} className={styles.textGreyLight}>
         {item}
       </li>
@@ -41,38 +55,48 @@ function Hero({ hero }) {
     events
   } = hero || {}
 
-  return [
-    <div className={styles.heroContainer}>
-      <div className={styles.heroPhoto}>
-      {hero && (
-        <Image
-          height={300}
-          width={300}
-          src={`${thumbnail.path}.${thumbnail.extension}`}
-          loading='lazy'
-        />
-      )}
-      </div>
-      <div className={styles.heroInfo}>
-        <h1 className={styles.h1Name}>{name}</h1>
-        {description ? (
-          <p className={styles.description}>
-            {description}
-          </p>
-        ) : (
-          <p className={[styles.textGrey, styles.description].join(' ')}>
-            No description provided.
-          </p>
+  return (
+    <SkeletonTheme color="#202020" highlightColor="#333">
+      <div className={styles.heroContainer}>
+        <div className={styles.heroPhoto}>
+        {hero ? (
+          <Image
+            height={300}
+            width={300}
+            src={`${thumbnail.path}.${thumbnail.extension}`}
+            loading='lazy'
+          />
+        ): (
+          <Skeleton
+            height={300}
+            width={300}
+          />
         )}
+        </div>
+        <div className={styles.heroInfo}>
+          <h1 className={styles.h1Name}>{name || <Skeleton width={150} />}</h1>
+          {description ? (
+            <p className={styles.description}>
+              {description}
+            </p>
+          ) : (
+            <p className={[styles.textGrey, styles.description].join(' ')}>
+              {name 
+                ? 'No description provided.'
+                : <Skeleton count={3} />
+              }
+            </p>
+          )}
+        </div>
       </div>
-    </div>,
-    <div className={styles.heroItemsContainer}>
-      {comics && <ItemList object={comics} name='comics' />}
-      {series && <ItemList object={series} name='series' />}
-      {stories && <ItemList object={stories} name='stories' />}
-      {events && <ItemList object={events} name='events' />}
-    </div>
-  ]
+      <div className={styles.heroItemsContainer}>
+        <ItemList object={comics} name='comics' />
+        <ItemList object={series} name='series' />
+        <ItemList object={stories} name='stories' />
+        <ItemList object={events} name='events' />
+      </div>
+    </SkeletonTheme>
+  )
 }
 
 export async function getStaticPaths() {

@@ -1,6 +1,5 @@
-import Image from 'next/image'
-import styles from '../styles/about.module.css'
 import Tape from '../components/tape/tape'
+import styles from '../styles/about.module.css'
 
 function About() {
   return (
