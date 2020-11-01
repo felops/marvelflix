@@ -70,10 +70,10 @@
 
 .carouselArrowContainerLeft {
   left: 0;
-  background: linear-gradient(90deg, #111, transparent);
+  background: linear-gradient(90deg, #141414, transparent);
 }
 
 .carouselArrowContainerRight {
   right: 0;
-  background: linear-gradient(270deg, #111, transparent);
+  background: linear-gradient(270deg, #141414, transparent);
 }
