@@ -42,7 +42,9 @@
 }
 
 .description {
+  color: #ccc;
   font-size: 1.2rem;
+  line-height: 1.8rem;
 }
 
 .textRed {

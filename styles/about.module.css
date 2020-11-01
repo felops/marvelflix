@@ -1,0 +1,31 @@
+.container {
+  margin: 0rem 2.5rem;
+}
+
+.description {
+  color: #ccc;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+}
+
+.description a {
+  color: #F0131E;
+}
+
+.flex {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.flexLeft {
+  flex: 1;
+  min-width: 300px;
+  min-height: 200px;
+  margin: 2rem 0rem 3rem 0rem;
+}
+
+.flexRight {
+  flex: 2;
+}

@@ -18,10 +18,4 @@
 .footer a {
   padding: 0.3rem;
   color: #F0131E;
-  transition: opacity 0.8s ease;
-}
-
-.footer a:hover {
-  padding: 0.3rem;
-  opacity: 0.8;
 }

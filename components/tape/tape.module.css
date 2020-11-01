@@ -1,0 +1,65 @@
+.tapeFaceFront {
+  transform: rotateY(0deg) translateZ(39px);
+  background-color: #000;
+  border: 1px solid #565452;
+}
+
+.tapeFaceBack {
+  transform: rotateY(180deg) translateZ(0px);
+  background-color: #000;
+  border: 1px solid #565452;
+}
+
+.tapeFaceRight {
+  transform: rotateY(90deg) translateX(-20px) translateZ(280px);
+  background-color: #000;
+  border: 1px solid #565452;
+}
+
+.tapeFaceLeft {
+  transform: rotateY(-90deg) translateX(20px) translateZ(20px);
+  background-color: #000;
+  border: 1px solid #565452;
+}
+
+.tapeFaceTop {
+  transform: rotateX(90deg) translateY(20px) translateZ(20px);
+  background-color: #000;
+  border: 1px solid #565452;
+}
+
+.tapeFaceBottom {
+  transform: rotateX(-90deg) translateY(-20px) translateZ(169px);
+  background-color: #000;
+  border: 1px solid #565452;
+}
+
+.tape {
+  flex: 1;
+  transform: rotateX(-20deg) rotateY(45deg);
+  transform-style: preserve-3d;
+  transition: all 1s;
+}
+
+.tape:hover {
+  cursor: pointer;
+  transform: rotateX(0deg) rotateY(0deg);
+}
+
+.tapeFace {
+  position: absolute;
+  width: 300px;
+  height: 189px;
+}
+
+.tapeFaceSideView {
+  position: absolute;
+  width: 39px;
+  height: 189px;
+}
+
+.tapeFaceTopView {
+  position: absolute;
+  width: 300px;
+  height: 39px;
+}

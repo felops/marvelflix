@@ -5,12 +5,18 @@ const ItemList = ({ object, name }) => {
   const isEmpty = !object || (object && object.items.length === 0)
   const remaining = object && object.available - object.items.length
   const tail = remaining > 0
-    ? <li className={styles.textGreyLight}>and <span className={styles.textRed}>{remaining} MORE..</span></li>
+    ? <li className={styles.textGreyLight}>
+        and <span className={styles.textRed}>{remaining} MORE..</span>
+      </li>
     : null
   const itemDescription = isEmpty
-    ? <li className={styles.textGrey}>No {name}</li>
+    ? <li className={styles.textGrey}>
+        No {name}
+      </li>
     : object && object.items.map(item =>
-      <li className={styles.textGreyLight}>{item}</li>
+      <li key={item.item} className={styles.textGreyLight}>
+        {item}
+      </li>
     )
 
   return (
@@ -24,7 +30,7 @@ const ItemList = ({ object, name }) => {
   )
 }
 
-function Heroe({ hero }) {
+function Hero({ hero }) {
   const {
     name,
     description,
@@ -35,40 +41,38 @@ function Heroe({ hero }) {
     events
   } = hero || {}
 
-  return (
-    <div>
-      <div className={styles.heroContainer}>
-        <div className={styles.heroPhoto}>
-        {hero && (
-          <Image
-            height={300}
-            width={300}
-            src={`${thumbnail.path}.${thumbnail.extension}`}
-            loading='lazy'
-          />
+  return [
+    <div className={styles.heroContainer}>
+      <div className={styles.heroPhoto}>
+      {hero && (
+        <Image
+          height={300}
+          width={300}
+          src={`${thumbnail.path}.${thumbnail.extension}`}
+          loading='lazy'
+        />
+      )}
+      </div>
+      <div className={styles.heroInfo}>
+        <h1 className={styles.h1Name}>{name}</h1>
+        {description ? (
+          <p className={styles.description}>
+            {description}
+          </p>
+        ) : (
+          <p className={[styles.textGrey, styles.description].join(' ')}>
+            No description provided.
+          </p>
         )}
-        </div>
-        <div className={styles.heroInfo}>
-          <h1 className={styles.h1Name}>{name}</h1>
-          {description ? (
-            <p className={[styles.textGreyLight, styles.description].join(' ')}>
-              {description}
-            </p>
-          ) : (
-            <p className={[styles.textGrey, styles.description].join(' ')}>
-              No description provided.
-            </p>
-          )}
-        </div>
       </div>
-      <div className={styles.heroItemsContainer}>
-        {comics && <ItemList object={comics} name='comics' />}
-        {series && <ItemList object={series} name='series' />}
-        {stories && <ItemList object={stories} name='stories' />}
-        {events && <ItemList object={events} name='events' />}
-      </div>
+    </div>,
+    <div className={styles.heroItemsContainer}>
+      {comics && <ItemList object={comics} name='comics' />}
+      {series && <ItemList object={series} name='series' />}
+      {stories && <ItemList object={stories} name='stories' />}
+      {events && <ItemList object={events} name='events' />}
     </div>
-  )
+  ]
 }
 
 export async function getStaticPaths() {
@@ -89,4 +93,4 @@ export async function getStaticProps({ params: { hero } }) {
   }
 }
 
-export default Heroe
+export default Hero
