@@ -1,3 +1,4 @@
+import Error from 'next/error'
 import Image from 'next/image'
 import styles from '../../styles/[hero].module.css'
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
@@ -34,7 +35,7 @@ const ItemList = ({ object, name }) => {
     )
 
   return (
-    <div className={styles.heroItemContainer}>
+    <div key={name} className={styles.heroItemContainer}>
       <h2 className={styles.h2Item}>{name}</h2>
       <ul>
         {itemDescription}
@@ -44,7 +45,7 @@ const ItemList = ({ object, name }) => {
   )
 }
 
-function Hero({ hero }) {
+function Hero({ hero, errorCode }) {
   const {
     name,
     description,
@@ -54,6 +55,21 @@ function Hero({ hero }) {
     stories,
     events
   } = hero || {}
+
+  if(errorCode) {
+    let title = 'Sorry, J.A.R.V.I.S. was not able to load the data'
+
+    if(errorCode === 404) {
+      title = 'Sorry, J.A.R.V.I.S. could not find this hero'
+    }
+
+    return (
+      <Error
+        title={title}
+        statusCode={errorCode}
+      />
+    )
+  }
 
   return (
     <SkeletonTheme color="#202020" highlightColor="#333">
@@ -107,13 +123,30 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { hero } }) {
-  const res = await fetch(process.env.MARVEL_API.concat(`/heroes/${hero}`))
-  const heroData = await res.json()
+  try {
+    const res = await fetch(process.env.MARVEL_API.concat(`/heroes/${hero}`))
 
-  return {
-    props: {
-      hero: heroData
-    },
+    if (res.status === 404) {
+      return {
+        props: {
+          errorCode: 404,
+        },
+      }
+    }
+
+    const heroData = await res.json()
+
+    return {
+      props: {
+        hero: heroData,
+      },
+    }
+  } catch (e) {
+    return {
+      props: {
+        errorCode: 500,
+      },
+    }
   }
 }
 
