@@ -20,7 +20,7 @@ const ItemList = ({ object, name }) => {
   const isEmpty = object.items.length === 0
   const remaining = object.available - object.items.length
   const tail = remaining > 0
-    ? <li className={styles.textGreyLight}>
+    ? <li key={remaining} className={styles.textGreyLight}>
         and <span className={styles.textRed}>{remaining} MORE..</span>
       </li>
     : null
@@ -29,7 +29,7 @@ const ItemList = ({ object, name }) => {
         No {name}
       </li>
     : object.items.map(item =>
-      <li key={item.item} className={styles.textGreyLight}>
+      <li key={item} className={styles.textGreyLight}>
         {item}
       </li>
     )
@@ -103,6 +103,7 @@ function Hero({ hero, errorCode }) {
               }
             </p>
           )}
+          <p className='marvel'>Data provided by Marvel. © 2014 Marvel</p>
         </div>
       </div>
       <div className={styles.heroItemsContainer}>

@@ -38,3 +38,21 @@ ul li {
   list-style: none;
   margin: 0.5rem 0px;
 }
+
+button {
+  margin: 0;
+  border: none;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  background-color: #F0131E;
+  font-family: Bebas Neue, -apple-system, BlinkMacSystemFont, Segoe UI,
+  Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+  sans-serif;
+}
+
+.marvel {
+  color: #777;
+  font-family: Bebas Neue;
+}

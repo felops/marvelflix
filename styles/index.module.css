@@ -1,7 +1,28 @@
-.divCarousel {
+.section {
   margin-bottom: 1rem;
 }
 
-.h2Home {
+.h2 {
   margin: 1rem 0rem 0.3rem 2.5rem;
+}
+
+.allHeroesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.lastBlock {
+  margin: 1rem;
+  text-align: center;
+}
+
+.button {
+  margin: 1rem;
+  width: 10rem;
+}
+
+.marvel {
+  margin-left: 1rem;
 }

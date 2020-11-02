@@ -7,18 +7,18 @@ export default function Hero({ hero }) {
   const imgPath = `${thumbnail.path}/portrait_fantastic.${thumbnail.extension}`
 
   return (
-    <figure key={id} className={styles.container}>
-      <Link href={{
-        pathname: '/heroes/[hero]',
-        query: { hero: id },
-      }}>
+    <Link href={{
+      pathname: '/heroes/[hero]',
+      query: { hero: id },
+    }}>
+      <figure className={styles.container}>
         <Image
           height={252}
           width={168}
           src={imgPath}
         />
-      </Link>
-      <figcaption className={styles.figcaption}>{name}</figcaption>
-    </figure>
+        <figcaption className={styles.figcaption}>{name}</figcaption>
+      </figure>
+    </Link>
   )
 }

@@ -43,7 +43,7 @@ export default function Carousel({ data }) {
         </span>
       </span>
       {data.map(hero => (
-        <span className={styles.hero}>
+        <span key={hero.id} className={styles.hero}>
           <Hero hero={hero} />
         </span>
       ))}
