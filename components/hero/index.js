@@ -4,7 +4,7 @@ import styles from './hero.module.css'
 
 export default function Hero({ hero }) {
   const { id, name, thumbnail } = hero
-  const imgPath = `${thumbnail.path}.${thumbnail.extension}`
+  const imgPath = `${thumbnail.path}/portrait_fantastic.${thumbnail.extension}`
 
   return (
     <figure key={id} className={styles.container}>
@@ -13,8 +13,8 @@ export default function Hero({ hero }) {
         query: { hero: id },
       }}>
         <Image
-          height={200}
-          width={200}
+          height={252}
+          width={168}
           src={imgPath}
         />
       </Link>

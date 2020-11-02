@@ -6,7 +6,7 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 const ItemList = ({ object, name }) => {
   if(!object) {
     return (
-      <div className={styles.heroItemContainer}>
+      <div key={name} className={styles.heroItemContainer}>
         <h2 className={styles.h2Item}>{name}</h2>
         <ul>
           <li><Skeleton width={150} /></li>
@@ -79,10 +79,10 @@ function Hero({ hero, errorCode }) {
           <Image
             height={300}
             width={300}
-            src={`${thumbnail.path}.${thumbnail.extension}`}
+            src={`${thumbnail.path}/standard_fantastic.${thumbnail.extension}`}
             loading='lazy'
           />
-        ): (
+        ) : (
           <Skeleton
             height={300}
             width={300}
