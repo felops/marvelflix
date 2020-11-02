@@ -1,5 +1,5 @@
 .container {
-  margin: 0rem 2.5rem;
+  margin: 0rem 2rem 5rem 2.5rem;
 }
 
 .description {
@@ -23,7 +23,7 @@
   flex: 1;
   min-width: 300px;
   min-height: 200px;
-  margin: 2rem 0rem 3rem 0rem;
+  margin: 2rem 0rem 5rem 0rem;
 }
 
 .flexRight {
