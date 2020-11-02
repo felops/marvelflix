@@ -1,0 +1,23 @@
+.container {
+  cursor: pointer;
+  margin: 2px;
+  opacity: 0.8;
+  transition: opacity 0.8s;
+}
+
+.container:hover {
+  margin: 0px;
+  opacity: 1;
+  border: 2px solid #F0131E;
+}
+
+.figcaption {
+  padding: 4px;
+  max-width: 200px;
+  overflow: hidden;
+  margin-top: -26px;
+  position: relative;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  background-color:rgba(0, 0, 0, 0.8);
+}

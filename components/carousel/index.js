@@ -1,7 +1,6 @@
 import { useRef } from 'react'
-import Link from 'next/link'
-import Image from 'next/image'
 import styles from './carousel.module.css'
+import Hero from '../hero'
 
 const SCROLL_OFFSET = 0.92
 
@@ -28,54 +27,36 @@ export default function Carousel({ data }) {
     })
   }
 
-  function renderItems(item) {
-    const { id, name, thumbnail } = item
-    const imgPath = `${thumbnail.path}.${thumbnail.extension}`
-    return (
-      <figure key={id} className={styles.carouselItem}>
-        <Link href={{
-          pathname: '/heroes/[hero]',
-          query: { hero: id },
-        }}>
-          <Image
-            height={200}
-            width={200}
-            src={imgPath}
-            quality={20}
-            loading='eager'
-          />
-        </Link>
-        <figcaption className={styles.carouselItemFigcaption}>{name}</figcaption>
-      </figure>
-    )
-  }
-
   return (
-    <section
+    <article
       ref={container}
-      className={styles.carouselContainer}
+      className={styles.container}
     >
       <span 
         onClick={onScrollBack}
-        className={[styles.carouselArrowContainer, styles.carouselArrowContainerLeft].join(' ')}
+        className={[styles.arrowContainer, styles.arrowContainerLeft].join(' ')}
       >
-        <span className={styles.carouselArrow}>
+        <span className={styles.arrow}>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#F0131E">
             <path strokeLinecap="square" strokeLinejoin="square" strokeWidth={3} d="M15 19l-7-7 7-7" />
           </svg>
         </span>
       </span>
-      {data.map(renderItems)}
+      {data.map(hero => (
+        <span className={styles.hero}>
+          <Hero hero={hero} />
+        </span>
+      ))}
       <span
         onClick={onScrollNext}
-        className={[styles.carouselArrowContainer, styles.carouselArrowContainerRight].join(' ')}
+        className={[styles.arrowContainer, styles.arrowContainerRight].join(' ')}
       >
-        <span className={styles.carouselArrow}>
+        <span className={styles.arrow}>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#F0131E">
             <path strokeLinecap="square" strokeLinejoin="square" strokeWidth={3} d="M9 5l7 7-7 7" />
           </svg>
         </span>
       </span>
-    </section>
+    </article>
   )
 }

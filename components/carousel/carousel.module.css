@@ -1,42 +1,23 @@
-.carouselItem {
-  cursor: pointer;
-  margin: 2px;
-  opacity: 0.85;
+.container .hero {
+  opacity: 1;
   transition: opacity 0.8s;
 }
 
-.carouselItem:hover {
-  margin: 0px;
-  opacity: 1;
-  border: 2px solid #F0131E;
+.container:hover .hero:not(:hover) {
+  opacity: 0.8;
 }
 
-.carouselContainer:hover .carouselItem:not(:hover) {
-  opacity: 0.7;
-}
-
-.carouselContainer {
+.container {
   display: flex;
   overflow-x: auto;
   scrollbar-width: none;
 }
 
-.carouselContainer::-webkit-scrollbar {
+.container::-webkit-scrollbar {
   display: none;
 }
 
-.carouselItemFigcaption {
-  padding: 4px;
-  max-width: 200px;
-  overflow: hidden;
-  margin-top: -26px;
-  position: relative;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  background-color:rgba(0, 0, 0, 0.8);
-}
-
-.carouselArrow {
+.arrow {
   display: flex;
   cursor: pointer;
   flex-direction: column;
@@ -47,7 +28,7 @@
   transition: all 0.3s;
 }
 
-.carouselArrow:hover {
+.arrow:hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -56,7 +37,7 @@
   width: 3.8vw;
 }
 
-.carouselArrowContainer {
+.arrowContainer {
   width: 5vw;
   z-index: 100;
   position: sticky;
@@ -64,16 +45,16 @@
   transition: opacity 0.8s;
 }
 
-.carouselContainer:hover .carouselArrowContainer {
+.container:hover .arrowContainer {
   opacity: 1;
 }
 
-.carouselArrowContainerLeft {
+.arrowContainerLeft {
   left: 0;
   background: linear-gradient(90deg, #141414, transparent);
 }
 
-.carouselArrowContainerRight {
+.arrowContainerRight {
   right: 0;
   background: linear-gradient(270deg, #141414, transparent);
 }

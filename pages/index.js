@@ -1,4 +1,4 @@
-import Carousel from '../components/carousel/carousel'
+import Carousel from '../components/carousel'
 import styles from '../styles/index.module.css'
 
 function Home({ featured, xMen, guardiansOfTheGalaxy }) {
