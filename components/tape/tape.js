@@ -6,7 +6,9 @@ export default function Carousel() {
     <div className={[styles.tape, styles.bounce].join(' ')}>
       <div className={[styles.tapeFace, styles.tapeFaceFront].join(' ')}>
         <Link href='https://www.youtube.com/watch?v=iGJKYwyhYJo'>
-          <img src="tape.jpg" />
+          <a>
+            <img src="tape.jpg" />
+          </a>
         </Link>
       </div>
       <div className={[styles.tapeFace, styles.tapeFaceBack].join(' ')} />

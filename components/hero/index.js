@@ -11,14 +11,16 @@ export default function Hero({ hero }) {
       pathname: '/heroes/[hero]',
       query: { hero: id },
     }}>
-      <figure className={styles.container}>
-        <Image
-          height={252}
-          width={168}
-          src={imgPath}
-        />
-        <figcaption className={styles.figcaption}>{name}</figcaption>
-      </figure>
+      <a>
+        <figure className={styles.container}>
+          <Image
+            height={252}
+            width={168}
+            src={imgPath}
+          />
+          <figcaption className={styles.figcaption}>{name}</figcaption>
+        </figure>
+      </a>
     </Link>
   )
 }
