@@ -14,9 +14,11 @@ export default function Hero({ hero }) {
       <a>
         <figure className={styles.container}>
           <Image
+            alt={name}
             height={252}
             width={168}
             src={imgPath}
+            layout='fixed'
           />
           <figcaption className={styles.figcaption}>{name}</figcaption>
         </figure>
