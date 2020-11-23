@@ -13,7 +13,7 @@ function Home({ heroes, heroesByMovies, errorCode }) {
   if(errorCode) {
     return (
       <Error
-        title='Sorry, J.A.R.V.I.S. was not able to load the data'
+        title='Sorry, J.A.R.V.I.S. was not able to load the data.'
         statusCode={errorCode}
       />
     )
@@ -30,12 +30,12 @@ function Home({ heroes, heroesByMovies, errorCode }) {
       setLoading(true)
       const data = await fetch(
         process.env.NEXT_PUBLIC_MARVEL_API
-          .concat(`&offset=${offset}&limit=${HEROES_LIMIT}`)
+          .concat(`/heroes?offset=${offset}&limit=${HEROES_LIMIT}`)
       )
-      const { data: { results } } = await data.json()
+      const { heroes } = await data.json()
       setAllHeroes([
         ...allHeroes,
-        ...results,
+        ...heroes,
       ])
       setOffset(offset + HEROES_LIMIT)
     } catch (e) {
@@ -53,7 +53,9 @@ function Home({ heroes, heroesByMovies, errorCode }) {
           .map(({ movie, heroes }) => (
             <section key={movie} className={styles.section}>
               <h2 className={styles.h2}>{movie}</h2>
-              <Carousel data={heroes.sort((a, b) => a.name.localeCompare(b.name))} />
+              <Carousel data={heroes.sort((a, b) =>
+                a.name.localeCompare(b.name)
+              )} />
             </section>
           ))
       }
@@ -90,11 +92,13 @@ export async function getStaticProps() {
   try {
     const api = process.env.MARVEL_API
     
-    const resHeroes = await fetch(api.concat(`/heroes?offset=0&limit=${HEROES_LIMIT}`))
     const resHeroesByMovies = await fetch(api.concat('/heroes/movies'))
+    const resHeroes = await fetch(
+      api.concat(`/heroes?offset=0&limit=${HEROES_LIMIT}`)
+    )
     
-    const { heroes } = await resHeroes.json()
     const heroesByMovies = await resHeroesByMovies.json()
+    const { heroes } = await resHeroes.json()
   
     return {
       props: {
